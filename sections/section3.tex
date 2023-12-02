@@ -1,0 +1,93 @@
+\section{Radiative Forcing and Feedback}
+\label{sec:forcing_feedback}
+\subsection{Radiative Forcings and Feedbacks}
+Let $I_N$ be the net irradiance at the \gls{TOA}, defined positive in the downward direction. It
+follows that in \textbf{radiative equillibrium}:
+$$
+I_N = \frac{(1 - \alpha_p) \text{\gls{TSI}}}{4} - \text{\gls{OLR}} = 0
+$$
+
+\begin{itemize}
+    \item A \textbf{radiative forcing} ($\Delta Q_{EXT}$) is an external perturbation to the climate system away from 
+radiative equillibrium at the \gls{TOA}. A positive forcing leads to a positive global mean surface temperature
+change ($\Delta T_s$), and vice versa.
+    \item A \textbf{feedback} ($\Delta Q_{INT}$) is an internal process which responds to the forcing \textbf{and} has an
+    effect on the global mean surface temperature.
+\end{itemize}
+
+\noindent It follows from the above definitions that:
+\begin{align}
+    \text{In the \textbf{absence} of feedback processes} \quad \Delta I_N &= \Delta Q_{EXT} \nonumber \\
+    \text{In the \textbf{presence} of feedback processes} \quad \Delta I_N &= \Delta Q_{EXT} + \Delta Q_{INT} \nonumber
+\end{align}
+
+We can also define a further parameter, the \textbf{climate feedback parameter} $\lambda$. This is a measure 
+of how much the planet's energy balance responds to changes in global mean surface temperature $\Delta T_s$. It is a
+measure of how much additional energy is trapped or lost as a result to said change in surface temperature. We define
+the total \textbf{climate feedback parameter} $\gamma$ as:
+$$
+\Delta Q_{INT} = \gamma \Delta T_s \label{eq:gamma}
+$$
+where $\gamma$ represents the radiative response of the climate feedback to a given $\Delta T_s$. Its units are 
+$\text{W m}^{-2} \text{K}^{-1}$.
+
+\subsection{Decomposing the Feedback Parameter}
+\label{sec:decompose_feedback}
+We can decompose the total feedback parameter $\gamma$ into the sum of individual feedback parameters:
+$$
+\gamma = \frac{dI_N}{dT_s} = \frac{\partial I_N}{\partial T_s} + \sum_x \frac{\partial I_N}{\partial x} 
+\frac{\partial x}{\partial T_s}
+$$
+where $x$ represents the various parameters (e.g. water vapour). Here, $\frac{\partial I_N}{\partial T_s} = -\gamma_{BB}$
+is the \textbf{blackbody feedback parameter}. The negative sign is simply to represent the fact that the surface will 
+radiate more more energy as it warms, reducing the net irradiance at the \gls{TOA} ($I_N$).
+
+\begin{tcolorbox}
+    \textbf{Example:\\}
+    For a simple 1 layer atmosphere transparent to solar radiation, it follows that $\text{\gls{OLR}} = \epsilon ' \sigma T_s^4$
+    where $\epsilon '$ is the effective \hyperlink{glo:emissivity}{emissivity} which reduces with atmospheric 
+    \hyperlink{glo:absorptivity}{absorptivity} and hence \hyperlink{glo:emissivity}{emissivity} increases. We can write:
+    $$
+    \frac{\partial I_N}{\partial T_S} = -\frac{\partial\ \text{\gls{OLR}}}{\partial T_s} = -\gamma_{BB} \quad \implies \quad
+    \boxed{\gamma_{BB} = 4 \epsilon ' \sigma T_s^3}
+    $$
+\end{tcolorbox}
+
+As per the example above, it becomes apparent that for a parameter ($x$) to exert a strong feedback, it must be dependent
+on both $T_s$ \textbf{and have an influence on} the net irradiance at the \gls{TOA} ($I_N$). 
+
+\subsection{Water Vapour Feedback and Clausius-Clapeyron Scaling}
+\label{sec:clausius-clapeyron}
+
+We mention in section \ref{sec:greenhouse_definition} that water vapour is the main absorber or \gls{LW} radiation, and 
+therefore the most important greenhouse gas. Water vapour concentrations show a strong dependence on temperature, i.e.
+the warmer the atmosphere, the more water vapour it can hold. This is a result of the Clausius-Clapeyron relation.\\
+
+As per Paterson's thermodynamics course, we know that the pressure of water vapour which is saturated with respect to 
+liquid water at a given temperature $T$ is given by:
+$$
+\frac{dP_s}{dT} = \frac{s_v - s_l}{v_v - v_l} \quad \implies \quad \boxed{\frac{dP_s}{dT} = \frac{l_v}{T v_v}}
+$$
+at the vapour-liquid phase boudary where $s_v$ and $s_l$ are the specific entropies of vapour and liquid water respectively,
+$v_v$ and $v_l$ are the specific volumes of vapour and liquid water respectively, $l_v$ is the latent heat of
+vaporisation and $P_s$ is the saturation vapour pressure.
+
+If we assume water vapour behaves as an ideal gas, it is apparent that $P_s v_v = Nk_B T/Nm_v = k_B T / m_v$ where $m_v$ is
+the molecular mass of water (remember we are using specific volume, not volume). We can define the gas constant for water
+vapour $R_v = R_v = k_B / m_v$ and hence:
+$$
+\frac{dP_s}{dT} = \frac{P_s l_v}{R_v T^2} \quad \implies \quad \frac{dP_s}{P} = \frac{l_v}{R_v T^2}dT
+$$
+for context, we find that for sensible values for the constants:
+$$
+\frac{\left(\frac{dP_s}{P_s}\right)}{dT_s} \approx 0.07\ \text{K}^{-1}
+$$
+we call this the Clausius-Clapeyron scaling. Note that this does not apply to the actual vapour pressure (related to
+the absolute amount of water vapour in the atmosphere). Vapour pressure and saturation vapour pressure are related by:
+$$
+\text{Relative Humidity, RH} = \frac{P_v}{P_s} \times 100\% \quad \implies \quad +7\%\ \text{RH per degree warming}
+$$
+where $P_v$ is the vapour pressure. 
+
+Climate models suggest that relative humidity is conserved under anthropogenic climate change meaning that the absolute 
+amount of water vapour in the atmosphere increases as atmospheric temperature increases.
